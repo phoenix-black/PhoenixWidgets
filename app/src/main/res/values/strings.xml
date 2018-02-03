@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Hoyo Widgets</string>
+
+    <!-- PROGRESS DIALOG -->
+    <string name="progress_outer_image">Outer Image</string>
+    <string name="progress_inner_image">Inner Image</string>
+</resources>
