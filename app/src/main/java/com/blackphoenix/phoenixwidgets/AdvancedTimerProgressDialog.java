@@ -33,16 +33,18 @@ public abstract class AdvancedTimerProgressDialog extends AlertDialog {
     public abstract void onDismissed();
 
     public AdvancedTimerProgressDialog(Context context, int themeResId, String text) {
-        super(context, themeResId);
-        this.progressText = text;
-        this._context = context;
+        this(context,themeResId,text,-1);
     }
-
+    public AdvancedTimerProgressDialog(Context context,String text, long timeout /* TIMEOUT in Milliseconds*/) {
+        this(context,R.style.ProgressDialogTheme,text,timeout);
+    }
 
     public AdvancedTimerProgressDialog(Context context, int themeResId, String text, long timeout /* TIMEOUT in Milliseconds*/) {
         super(context, themeResId);
         this.progressText = text;
-        this.WAIT_TIME = timeout;
+        if(timeout!= -1) {
+            this.WAIT_TIME = timeout;
+        }
         this._context = context;
     }
 
