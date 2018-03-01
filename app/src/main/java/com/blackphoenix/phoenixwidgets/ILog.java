@@ -36,7 +36,7 @@ public class ILog {
     }
 
     public static void d(String title, String message) {
-        String logMessage = ""+getClassName(4)+"."+getMethodName(5)+"()."+getLineNumber(5)+": "+title + " -> " + message;
+        String logMessage = ""+getClassName(4)+"."+getMethodName(4)+"()."+getLineNumber(4)+": "+title + " -> " + message;
         Log.e("PxLog",""+logMessage);
     }
 
@@ -71,7 +71,7 @@ public class ILog {
         try {
             //BufferedWriter for performance, true to set append to file flag
             BufferedWriter buf = new BufferedWriter(new FileWriter(logFile, true));
-            String logMessage = ""+getClassName(5)+"."+getMethodName(6)+"()."+getLineNumber(6)+": "+title + " -> " + message;
+            String logMessage = ""+getClassName(5)+"."+getMethodName(5)+"()."+getLineNumber(5)+": "+title + " -> " + message;
             buf.append(logMessage);
             buf.newLine();
             buf.close();
