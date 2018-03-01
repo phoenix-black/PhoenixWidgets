@@ -35,6 +35,7 @@ public class ILog {
         appendLog(context,errorTitle,errorMessage);
     }
 
+
     public static void d(String title, String message) {
         String logMessage = ""+getClassName(4)+"."+getMethodName(4)+"()."+getLineNumber(4)+": "+title + " -> " + message;
         Log.e("PxLog",""+logMessage);
