@@ -6,7 +6,7 @@
     android:layout_margin="8dp"
     android:padding="6dp"
     android:layout_gravity="center"
-    android:background="@drawable/shape_dialog_view">
+    android:background="@drawable/pxwidget_shape_dialog_view">
 
     <TextView
         android:layout_width="match_parent"
@@ -28,7 +28,7 @@
         android:singleLine="true"
         android:imeOptions="actionDone"
         android:hint="User ID"
-        android:background="@drawable/shape_input_border"/>
+        android:background="@drawable/pxwidget_shape_input_border"/>
 
 
     <LinearLayout

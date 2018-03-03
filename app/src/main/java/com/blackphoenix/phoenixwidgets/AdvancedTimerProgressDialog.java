@@ -8,6 +8,7 @@ import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
@@ -36,6 +37,59 @@ public abstract class AdvancedTimerProgressDialog extends AlertDialog {
     public abstract void onTimedOut();
     public abstract void onDismissed();
 
+   /* private TextConfig textConfig;
+    private FinishButtonConfig finishButtonConfig;
+    private CancelButtonConfig cancelButtonConfig;
+    private TimerConfig timerConfig;
+
+    public class TextConfig {
+        float textSize;
+        int textColor;
+        LinearLayout.LayoutParams layoutParams;
+
+        public LinearLayout.LayoutParams getLayoutParams() {
+            return layoutParams;
+        }
+
+        public void setLayoutParams(LinearLayout.LayoutParams layoutParams) {
+            this.layoutParams = layoutParams;
+        }
+
+        public float getTextSize() {
+            return textSize;
+        }
+
+        public void setTextSize(float textSize) {
+            this.textSize = textSize;
+        }
+
+        public int getTextColor() {
+            return textColor;
+        }
+
+        public void setTextColor(int textColor) {
+            this.textColor = textColor;
+        }
+    }
+
+    public class FinishButtonConfig extends ButtonConfig {
+
+    }
+
+    public class CancelButtonConfig extends ButtonConfig {
+
+    }
+
+    public class ButtonConfig {
+
+    }
+
+    public class TimerConfig {
+
+    }
+*/
+
+
     public AdvancedTimerProgressDialog(Context context, int themeResId, String text) {
         this(context,themeResId,text,-1);
     }
@@ -55,7 +109,6 @@ public abstract class AdvancedTimerProgressDialog extends AlertDialog {
     @Override
     protected void onStart(){
         super.onStart();
-
     }
 
     @Override
@@ -72,13 +125,19 @@ public abstract class AdvancedTimerProgressDialog extends AlertDialog {
         textViewContent = (TextView)findViewById(R.id.dialogMessage_content);
         textViewContent.setText(progressText);
         LinearLayout parentLayout = findViewById(R.id.dialog_timer_progress);
+/*
+        if(textConfig!=null){
+            textViewContent.setTextSize(textConfig.getTextSize());
+            textViewContent.setTextColor(textConfig.getTextColor());
+            textViewContent.setLayoutParams(textConfig.getLayoutParams());
+        }*/
 
-        GradientDrawable drawable = (GradientDrawable) parentLayout.getBackground();
+/*        GradientDrawable drawable = (GradientDrawable) parentLayout.getBackground();
         if(drawable!=null) {
             drawable.setColor(Color.BLACK);
             drawable.setCornerRadius(15);
             drawable.setStroke(2,Color.parseColor("#00ffff"));
-        }
+        }*/
 
         Button finishButton = findViewById(R.id.dialogTimer_finish);
         Button cancelButton = findViewById(R.id.dialogTimer_cancel);
