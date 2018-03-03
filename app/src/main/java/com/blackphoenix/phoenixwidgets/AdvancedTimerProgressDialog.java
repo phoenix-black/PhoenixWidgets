@@ -2,6 +2,9 @@ package com.blackphoenix.phoenixwidgets;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -10,6 +13,7 @@ import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.blackphoenix.phoenixwidgets.listeners.ProgressDialogDataInterface;
@@ -67,7 +71,11 @@ public abstract class AdvancedTimerProgressDialog extends AlertDialog {
         ImageView imageViewOuter = (ImageView) findViewById(R.id.progress_smallOuterImage);
         textViewContent = (TextView)findViewById(R.id.dialogMessage_content);
         textViewContent.setText(progressText);
+        LinearLayout parentLayout = findViewById(R.id.dialog_timer_progress);
 
+        GradientDrawable drawable = (GradientDrawable) parentLayout.getBackground();
+        if(drawable!=null)
+            drawable.setColor(Color.BLACK);
 
         Button finishButton = findViewById(R.id.dialogTimer_finish);
         Button cancelButton = findViewById(R.id.dialogTimer_cancel);
