@@ -74,8 +74,11 @@ public abstract class AdvancedTimerProgressDialog extends AlertDialog {
         LinearLayout parentLayout = findViewById(R.id.dialog_timer_progress);
 
         GradientDrawable drawable = (GradientDrawable) parentLayout.getBackground();
-        if(drawable!=null)
+        if(drawable!=null) {
             drawable.setColor(Color.BLACK);
+            drawable.setCornerRadius(15);
+            drawable.setStroke(2,Color.parseColor("#00ffff"));
+        }
 
         Button finishButton = findViewById(R.id.dialogTimer_finish);
         Button cancelButton = findViewById(R.id.dialogTimer_cancel);
