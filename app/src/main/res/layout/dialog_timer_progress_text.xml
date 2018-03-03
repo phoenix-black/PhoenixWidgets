@@ -10,7 +10,7 @@
     android:layout_gravity="center"
     android:padding="5dp"
     android:id="@+id/dialog_message"
-    android:background="@drawable/shape_rounded_rect_view">
+    android:background="#000000">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="horizontal"
