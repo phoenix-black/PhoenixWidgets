@@ -54,6 +54,7 @@
             android:layout_gravity="center_vertical"
             android:maxLines="5"
             android:scrollbars="vertical"
+            android:maxHeight="100dp"
             android:textColor="@color/dialogColorPrimaryText"
             />
     </LinearLayout>
