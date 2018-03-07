@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -61,6 +62,7 @@ public abstract class MessageDialog extends AlertDialog {
         ImageView imageViewInner = (ImageView) findViewById(R.id.progress_smallInnerImage);
         ImageView imageViewOuter = (ImageView) findViewById(R.id.progress_smallOuterImage);
         textViewContent = (TextView)findViewById(R.id.dialogMessage_content);
+        textViewContent.setMovementMethod(new ScrollingMovementMethod());
         textViewContent.setText(progressText);
 
         progressDialogDataInterface = new ProgressDialogDataInterface() {
