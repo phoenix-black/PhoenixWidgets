@@ -6,19 +6,19 @@
     android:background="@android:color/transparent">
 
     <ImageView
-        android:layout_width="@dimen/progress_outer_image_width"
-        android:layout_height="@dimen/progress_outer_image_height"
+        android:layout_width="@dimen/pxw_progress_outer_image_width"
+        android:layout_height="@dimen/pxw_progress_outer_image_height"
         android:id="@+id/progress_outerImage"
         android:src="@drawable/pxwidget_progress_outer_circle"
-        android:contentDescription="@string/progress_outer_image"
+        android:contentDescription="@string/pxw_progress_outer_image"
         android:layout_centerInParent="true"/>
 
     <ImageView
-        android:layout_width="@dimen/progress_inner_image_width"
-        android:layout_height="@dimen/progress_inner_image_height"
+        android:layout_width="@dimen/pxw_progress_inner_image_width"
+        android:layout_height="@dimen/pxw_progress_inner_image_height"
         android:id="@+id/progress_innerImage"
         android:src="@drawable/pxwidget_progress_inner_circle_02"
-        android:contentDescription="@string/progress_inner_image"
+        android:contentDescription="@string/pxw_progress_inner_image"
         android:layout_centerInParent="true"/>
 
 </RelativeLayout>

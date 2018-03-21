@@ -37,7 +37,7 @@ public abstract class AdvancedProgressTextDialog extends AlertDialog {
     }
 
     public AdvancedProgressTextDialog(Context context, String text) {
-        super(context, R.style.ProgressDialogTheme);
+        super(context, R.style.PxwProgressDialogTheme);
         this.progressText = text;
         this._context = context;
     }
@@ -59,7 +59,7 @@ public abstract class AdvancedProgressTextDialog extends AlertDialog {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.dialog_progress_text);
+        setContentView(R.layout.pxw_dialog_progress_text);
         setCanceledOnTouchOutside(false);
         setCancelable(false);
 

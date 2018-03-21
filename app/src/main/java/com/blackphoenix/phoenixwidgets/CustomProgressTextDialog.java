@@ -51,7 +51,7 @@ public class CustomProgressTextDialog extends AlertDialog {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.dialog_progress_text);
+        setContentView(R.layout.pxw_dialog_progress_text);
         setCanceledOnTouchOutside(false);
         setCancelable(false);
 

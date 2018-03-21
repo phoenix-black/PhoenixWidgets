@@ -3,13 +3,11 @@ package com.blackphoenix.phoenixwidgets;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.blackphoenix.phoenixwidgets.listeners.ComparisonDialogInterface;
 
@@ -45,7 +43,7 @@ public abstract class HoyoComparisonDialog extends AlertDialog {
     public abstract void onTimedOut();
 
     public HoyoComparisonDialog(Context context, String textOne, String textTwo) {
-        super(context, R.style.ProgressDialogTheme);
+        super(context, R.style.PxwProgressDialogTheme);
         this.progressTextOne = textOne;
         this.progressTextTwo = textTwo;
         this._context = context;
@@ -53,7 +51,7 @@ public abstract class HoyoComparisonDialog extends AlertDialog {
 
 
     public HoyoComparisonDialog(Context context) {
-        super(context, R.style.ProgressDialogTheme);
+        super(context, R.style.PxwProgressDialogTheme);
         this._context = context;
     }
 
@@ -109,7 +107,7 @@ public abstract class HoyoComparisonDialog extends AlertDialog {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.dialog_comparison);
+        setContentView(R.layout.pxw_dialog_comparison);
         setCanceledOnTouchOutside(false);
         setCancelable(false);
 

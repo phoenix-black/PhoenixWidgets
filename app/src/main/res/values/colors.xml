@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="dialogColorPrimaryText">#00ffff</color>
-    <color name="dialogSecondaryText">#757575</color>
-    <color name="dialogWhite">#000000</color>
+    <color name="pxwDialogColorPrimaryText">#00ffff</color>
+    <color name="pxwDialogSecondaryText">#757575</color>
+    <color name="pxwDialogWhite">#000000</color>
 
 </resources>

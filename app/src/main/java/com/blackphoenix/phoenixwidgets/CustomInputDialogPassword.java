@@ -38,7 +38,7 @@ public abstract class CustomInputDialogPassword extends Dialog {
     }
 
     protected CustomInputDialogPassword(Context context) {
-        this(context,  R.style.CustomDialogTheme);
+        this(context,  R.style.PxwCustomDialogTheme);
         dn_dialogContext = context;
     }
 
@@ -59,7 +59,7 @@ public abstract class CustomInputDialogPassword extends Dialog {
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.dialog_input_password);
+        setContentView(R.layout.pxw_dialog_input_password);
         setCanceledOnTouchOutside(false);
         getWindow().setSoftInputMode(
                 WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);

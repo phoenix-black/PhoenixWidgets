@@ -26,7 +26,7 @@ public class CustomProgressDialog extends AlertDialog {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.dialog_progress_circle);
+        setContentView(R.layout.pxw_dialog_progress_circle);
         setCanceledOnTouchOutside(false);
         setCancelable(false);
 

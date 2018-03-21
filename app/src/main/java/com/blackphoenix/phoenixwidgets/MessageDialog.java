@@ -55,7 +55,7 @@ public abstract class MessageDialog extends AlertDialog {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.dialog_message);
+        setContentView(R.layout.pxw_dialog_message);
         setCanceledOnTouchOutside(false);
         setCancelable(false);
 

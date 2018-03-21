@@ -2,13 +2,9 @@ package com.blackphoenix.phoenixwidgets;
 
 import android.app.AlertDialog;
 import android.content.Context;
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
@@ -94,7 +90,7 @@ public abstract class AdvancedTimerProgressDialog extends AlertDialog {
         this(context,themeResId,text,-1);
     }
     public AdvancedTimerProgressDialog(Context context,String text, long timeout /* TIMEOUT in Milliseconds*/) {
-        this(context,R.style.ProgressDialogTheme,text,timeout);
+        this(context,R.style.PxwProgressDialogTheme,text,timeout);
     }
 
     public AdvancedTimerProgressDialog(Context context, int themeResId, String text, long timeout /* TIMEOUT in Milliseconds*/) {
@@ -115,7 +111,7 @@ public abstract class AdvancedTimerProgressDialog extends AlertDialog {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.dialog_timer_progress_text);
+        setContentView(R.layout.pxw_dialog_timer_progress_text);
         setCanceledOnTouchOutside(false);
         setCancelable(false);
 

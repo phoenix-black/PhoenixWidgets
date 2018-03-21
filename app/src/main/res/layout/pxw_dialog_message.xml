@@ -24,11 +24,11 @@
             android:padding="5dp"
             android:layout_gravity="center_vertical">
             <ImageView
-                android:layout_width="@dimen/progress_small_outer_image_width"
-                android:layout_height="@dimen/progress_small_outer_image_height"
+                android:layout_width="@dimen/pxw_progress_small_outer_image_width"
+                android:layout_height="@dimen/pxw_progress_small_outer_image_height"
                 android:id="@+id/progress_smallOuterImage"
                 android:src="@drawable/pxwidget_progress_outer_circle"
-                android:contentDescription="@string/progress_outer_image"
+                android:contentDescription="@string/pxw_progress_outer_image"
                 android:visibility="gone"
                 android:layout_centerInParent="true"/>
 
@@ -38,7 +38,7 @@
                 android:layout_marginBottom="8dp"
                 android:id="@+id/progress_smallInnerImage"
                 android:src="@drawable/pxwidget_icon_info_2"
-                android:contentDescription="@string/progress_inner_image"
+                android:contentDescription="@string/pxw_progress_inner_image"
                 android:layout_centerInParent="true"
                 android:layout_alignParentTop="true"/>
         </RelativeLayout>
@@ -55,7 +55,7 @@
             android:maxLines="5"
             android:scrollbars="vertical"
             android:maxHeight="100dp"
-            android:textColor="@color/dialogColorPrimaryText"
+            android:textColor="@color/pxwDialogColorPrimaryText"
             />
     </LinearLayout>
 
