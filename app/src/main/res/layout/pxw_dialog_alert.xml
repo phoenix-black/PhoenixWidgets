@@ -10,6 +10,7 @@
     android:background="@drawable/pxwidget_shape_circular_view">
 
     <ImageView
+        android:id="@+id/dialogAlert_icon"
         android:layout_width="36dp"
         android:layout_height="36dp"
         android:layout_margin="5dp"
@@ -53,7 +54,7 @@
         android:gravity="center">
 
         <Button
-            android:id="@+id/dialogAlert_negative"
+            android:id="@+id/dialogAlert_negativeButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -66,7 +67,7 @@
             android:textSize="18sp"/>
 
         <Button
-            android:id="@+id/dialogAlert_positive"
+            android:id="@+id/dialogAlert_positiveButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"

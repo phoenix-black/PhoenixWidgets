@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.blackphoenix.phoenixwidgets.listeners.ProgressDialogDataInterface;
@@ -86,10 +85,10 @@ public abstract class CircularAlertDialog extends AlertDialog {
         setCanceledOnTouchOutside(true);
         setCancelable(true);
 
-        TextView alertMessage = findViewById(R.id.dialogMessage_content);
-        ImageView alertIcon =  findViewById(R.id.progress_smallOuterImage);
-        Button finishButton = findViewById(R.id.dialogTimer_finish);
-        Button cancelButton = findViewById(R.id.dialogTimer_cancel);
+        TextView alertMessage = findViewById(R.id.dialogAlert_content);
+        ImageView alertIcon =  findViewById(R.id.dialogAlert_icon);
+        Button finishButton = findViewById(R.id.dialogAlert_positiveButton);
+        Button cancelButton = findViewById(R.id.dialogAlert_negativeButton);
 
         if(_alertMessage!=null){
             alertMessage.setText(_alertMessage);
