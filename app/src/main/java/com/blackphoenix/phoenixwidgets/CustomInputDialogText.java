@@ -61,8 +61,11 @@ public abstract class CustomInputDialogText extends Dialog {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.pxw_dialog_input_text);
         setCanceledOnTouchOutside(false);
-        getWindow().setSoftInputMode(
-                WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+        Window dialogWindow = getWindow();
+
+        if(dialogWindow!=null) {
+            dialogWindow.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+        }
 
         dds_inputName = (EditText)findViewById(R.id.arenaNameDialog_arenaName);
         dds_buttonCancel = (Button)findViewById(R.id.arenaNAmeDialog_actionCancel);

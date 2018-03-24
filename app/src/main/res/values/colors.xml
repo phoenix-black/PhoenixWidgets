@@ -3,6 +3,7 @@
 
     <color name="pxwDialogColorPrimaryText">#00ffff</color>
     <color name="pxwDialogSecondaryText">#757575</color>
-    <color name="pxwDialogWhite">#000000</color>
+    <color name="pxwDialogBlack">#000000</color>
+    <color name="pxwDialogWhite">#ffffff</color>
 
 </resources>
