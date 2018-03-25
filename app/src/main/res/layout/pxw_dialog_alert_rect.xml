@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="30dp"
+    android:padding="5dp"
+    android:layout_gravity="center"
+    android:id="@+id/dialog_alert_rect"
+    android:background="@drawable/pxwidget_shape_rounded_rect_view">
+
+    <ImageView
+        android:id="@+id/dialogAlertRect_icon"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_margin="10dp"
+        android:layout_gravity="start"
+        android:layout_weight="1"
+        android:contentDescription="alert_icon"
+        android:src="@drawable/pxwidget_icon_info_2"/>
+
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_weight="5"
+        android:gravity="center"
+        android:layout_gravity="center">
+
+        <TextView
+            android:id="@+id/dialogAlertRect_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Loading..."
+            android:textSize="28sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="10dp"
+            android:layout_gravity="center"
+            android:textColor="@color/pxwDialogWhite"
+            />
+     </LinearLayout>
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:paddingStart="30dp"
+        android:paddingEnd="30dp"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/dialogAlertRect_negativeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_gravity="start"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:text="CANCEL"
+            android:textColor="#00ffff"
+            style="?android:attr/borderlessButtonStyle"
+            android:textSize="18sp"/>
+
+        <Button
+            android:id="@+id/dialogAlertRect_positiveButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_gravity="end"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="10dp"
+            android:text="OK"
+            android:textColor="#00ffff"
+            style="?android:attr/borderlessButtonStyle"
+            android:textSize="18sp"/>
+
+    </LinearLayout>
+
+</LinearLayout>

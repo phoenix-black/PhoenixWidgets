@@ -15,7 +15,7 @@ import com.blackphoenix.phoenixwidgets.listeners.ProgressDialogDataInterface;
  * Created by Praba on 08-02-2017.
  */
 
-public abstract class CircularAlertDialog extends AlertDialog {
+public class PxAlertDialog extends AlertDialog {
 
     ProgressDialogDataInterface progressDialogDataInterface;
 
@@ -34,40 +34,40 @@ public abstract class CircularAlertDialog extends AlertDialog {
         void onClick(View view);
     }
 
-    public CircularAlertDialog(Context context, String text) {
+    public PxAlertDialog(Context context, String text) {
         this(context,R.style.PxwProgressDialogTheme,text);
     }
 
-    public CircularAlertDialog(Context context, int themeResId, String text) {
+    public PxAlertDialog(Context context, int themeResId, String text) {
         super(context, themeResId);
     }
 
-    public CircularAlertDialog setPositiveButtonText(String buttonText){
+    public PxAlertDialog setPositiveButtonText(String buttonText){
         this._positiveButtonText = buttonText;
         return this;
     }
 
-    public CircularAlertDialog setNegativeButtonText(String buttonText) {
+    public PxAlertDialog setNegativeButtonText(String buttonText) {
         this._negativeButtonText = buttonText;
         return this;
     }
 
-    public CircularAlertDialog setAlertMessage(String message) {
+    public PxAlertDialog setAlertMessage(String message) {
         this._alertMessage = message;
         return this;
     }
 
-    public CircularAlertDialog setAlertIcon(int resourceID){
+    public PxAlertDialog setAlertIcon(int resourceID){
         this._alertIconResourceID = resourceID;
         return this;
     }
 
-    public CircularAlertDialog setPositiveButtonClickListener(OnPositiveButtonClickListener listener){
+    public PxAlertDialog setPositiveButtonClickListener(OnPositiveButtonClickListener listener){
         this._positiveButtonClickListener = listener;
         return this;
     }
 
-    public CircularAlertDialog setNegativeButtonClickListener(OnNegativeButtonClickListener listener){
+    public PxAlertDialog setNegativeButtonClickListener(OnNegativeButtonClickListener listener){
         this._negativeButtonClickListener = listener;
         return this;
     }
@@ -81,14 +81,14 @@ public abstract class CircularAlertDialog extends AlertDialog {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.pxw_dialog_alert);
+        setContentView(R.layout.pxw_dialog_alert_rect);
         setCanceledOnTouchOutside(true);
         setCancelable(true);
 
-        TextView alertMessage = findViewById(R.id.dialogAlert_content);
-        ImageView alertIcon =  findViewById(R.id.dialogAlert_icon);
-        Button finishButton = findViewById(R.id.dialogAlert_positiveButton);
-        Button cancelButton = findViewById(R.id.dialogAlert_negativeButton);
+        TextView alertMessage = findViewById(R.id.dialogAlertRect_content);
+        ImageView alertIcon =  findViewById(R.id.dialogAlertRect_icon);
+        Button finishButton = findViewById(R.id.dialogAlertRect_positiveButton);
+        Button cancelButton = findViewById(R.id.dialogAlertRect_negativeButton);
 
         if(_alertMessage!=null){
             alertMessage.setText(_alertMessage);
