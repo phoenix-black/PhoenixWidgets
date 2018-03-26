@@ -68,15 +68,6 @@ public class PxEditDialog extends Dialog {
         void onEditClicked(View view);
     }
 
-    protected PxEditDialog(Context context) {
-        this(context,  R.style.PxwCustomDialogTheme);
-        dn_dialogContext = context;
-    }
-
-    private PxEditDialog(Context context, int themeResId) {
-        super(context, themeResId);
-        dn_dialogContext = context;
-    }
 
 
     public void setDataTitle(@NonNull String text){
@@ -113,6 +104,15 @@ public class PxEditDialog extends Dialog {
     }
 
 
+
+    public PxEditDialog(Context context) {
+        this(context,  R.style.PxwCustomDialogTheme);
+    }
+
+    public PxEditDialog(Context context, int themeResId) {
+        super(context, themeResId);
+        dn_dialogContext = context;
+    }
 
 
     @Override
