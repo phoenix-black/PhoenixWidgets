@@ -48,6 +48,7 @@ public class PxEditDialog extends Dialog {
     private OnUpdateListener updateListener;
     private OnCancelListener cancelListener;
     private OnEditClickListener editClickListener;
+    private UIInterface uiInterface;
 
     private EditText dds_dataInput;
     private TextView dds_dataTitle;
@@ -68,41 +69,72 @@ public class PxEditDialog extends Dialog {
         void onEditClicked(View view);
     }
 
+    public interface UIInterface {
+        void setInput(String data);
+        void setTitle(String data);
+    }
 
 
-    public void setDataTitle(@NonNull String text){
+    public PxEditDialog setDataTitle(@NonNull String text){
         this.dataTitle = text;
+        return this;
     }
 
-    public void setDataInput(@NonNull String text){
+    public PxEditDialog setDataInput(@NonNull String text){
         this.dataInput = text;
+        return this;
     }
 
-    public void setDataIconID(int icon_id){
+    public PxEditDialog setDataIconID(int icon_id){
         this.dataIconID = icon_id;
+        return this;
     }
 
-    public void setDataInputType(int type){
+    public PxEditDialog setDataInputType(int type){
         this.dataInputType = type;
+        return this;
     }
 
-    public void setSetDataValidationRule(@NonNull String rule, @NonNull String errorMessage){
+    public PxEditDialog setSetDataValidationRule(@NonNull String rule, @NonNull String errorMessage){
         this.dataValidationRule = rule;
         this.dataValidationMessage = errorMessage;
+        return this;
     }
 
-    public void setUpdateListener(@NonNull OnUpdateListener listener){
+    public PxEditDialog setUpdateListener(@NonNull OnUpdateListener listener){
         this.updateListener = listener;
+        return this;
     }
 
-    public void setCancelListener(@NonNull OnCancelListener listener){
+    public PxEditDialog setCancelListener(@NonNull OnCancelListener listener){
         this.cancelListener = listener;
+        return this;
     }
 
-    public void setEditClickListener(@NonNull OnEditClickListener listener){
+    public PxEditDialog setEditClickListener(@NonNull OnEditClickListener listener){
         this.editClickListener = listener;
+        return this;
     }
 
+    public boolean updateDataInput(@NonNull String data){
+        if(uiInterface!=null) {
+            uiInterface.setInput(data);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+
+    public boolean updateDataTitle(@NonNull String data){
+        if(uiInterface!=null) {
+            uiInterface.setTitle(data);
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 
     public PxEditDialog(Context context) {
@@ -132,6 +164,19 @@ public class PxEditDialog extends Dialog {
         dds_dataInput = (EditText)findViewById(R.id.dialogEdit_dataInput);
         dds_buttonCancel = (Button)findViewById(R.id.dialogEdit_actionCancel);
         dds_buttonUpdate = (Button)findViewById(R.id.dialogEdit_actionUpdate);
+
+
+        uiInterface = new UIInterface() {
+            @Override
+            public void setInput(String data) {
+                dds_dataInput.setText(data);
+            }
+
+            @Override
+            public void setTitle(String data) {
+                dds_dataTitle.setText(data);
+            }
+        };
 
 
         if(dataInput !=null && dataInput.length()>0){
@@ -181,7 +226,6 @@ public class PxEditDialog extends Dialog {
                 }
             });
         }
-
 
         dds_buttonCancel.setOnClickListener(new View.OnClickListener() {
             @Override
