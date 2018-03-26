@@ -13,6 +13,7 @@ import com.blackphoenix.phoenixwidgets.listeners.ProgressDialogDataInterface;
 
 /**
  * Created by Praba on 08-02-2017.
+ * ToDo: Move All String to Resources
  */
 
 public class PxCircularAlertDialog extends AlertDialog {

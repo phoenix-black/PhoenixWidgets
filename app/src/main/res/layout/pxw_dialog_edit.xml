@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:padding="6dp"
+    android:layout_gravity="center"
+    android:background="@drawable/pxwidget_shape_dialog_view">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/dialogEdit_dataIcon"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_margin="3dp"
+            android:src="@drawable/pxwidget_icon_info_2"/>
+
+        <TextView
+            android:id="@+id/dialogEdit_dataTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="Edit Data"
+            android:textSize="30sp"
+            android:textAlignment="center"
+            android:textColor="#00ffff"/>
+    </LinearLayout>
+
+
+
+    <EditText
+        android:id="@+id/dialogEdit_dataInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="6dp"
+        android:textSize="28sp"
+        android:padding="4dp"
+        android:textColor="#ffffff"
+        android:singleLine="true"
+        android:imeOptions="actionDone"
+        android:background="@drawable/pxwidget_shape_input_border"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="6dp"
+        android:layout_margin="6dp"
+        android:layout_gravity="center"
+        android:gravity="center">
+
+
+        <Button
+            android:id="@+id/dialogEdit_actionCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CANCEL"
+            android:layout_weight="1"
+            android:textSize="24sp"
+            android:textColor="#00ffff"
+            style="?android:attr/borderlessButtonStyle"/>
+
+
+        <Button
+            android:id="@+id/dialogEdit_actionUpdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="UPDATE"
+            android:layout_weight="1"
+            android:textSize="24sp"
+            android:textColor="#00ffff"
+            style="?android:attr/borderlessButtonStyle"/>
+
+    </LinearLayout>
+
+</LinearLayout>
