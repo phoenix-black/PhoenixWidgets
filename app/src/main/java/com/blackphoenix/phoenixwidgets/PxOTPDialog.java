@@ -46,8 +46,8 @@ public class PxOTPDialog extends Dialog {
     private long openMessageTime = -1;
     private long newOTPTime = otpCountDownTime;
 
-    private boolean isOpenMessageInfoEnabled = false;
-    private boolean isRequestNewOTPInfoEnabled = false;
+    private boolean isOpenMessageInfoEnabled = true;
+    private boolean isRequestNewOTPInfoEnabled = true;
 
     private String otpValidationRule = null;
     private String otpValidationMessage = null;
