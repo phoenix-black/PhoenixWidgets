@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:padding="6dp"
+    android:layout_gravity="center"
+    android:background="@drawable/pxwidget_shape_dialog_view">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/dialogOTP_dialogIcon"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_margin="3dp"
+            android:visibility="gone"
+            android:src="@drawable/pxwidget_icon_info_2"/>
+
+        <TextView
+            android:id="@+id/dialogOTP_dialogTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="Verify Your Mobile Number"
+            android:textSize="28sp"
+            android:textAlignment="center"
+            android:textColor="#00ffff"/>
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_margin="5dp">
+
+        <TextView
+            android:id="@+id/dialogOTP_otpIDLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_gravity="center"
+            android:text="OTP ID:"
+            android:textSize="20sp"
+            android:layout_alignParentStart="true"
+            android:textAlignment="center"
+            android:textColor="#ffffff"/>
+        <TextView
+            android:id="@+id/dialogOTP_otpIDInput"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_toEndOf="@+id/dialogOTP_otpIDLabel"
+            android:layout_gravity="center"
+            android:text="34897"
+            android:textSize="20sp"
+            android:textAlignment="center"
+            android:textColor="#ffffff"/>
+
+        <TextView
+            android:layout_alignParentEnd="true"
+            android:id="@+id/dialogOTP_otpTimer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_gravity="center"
+            android:text="00:00"
+            android:textSize="18sp"
+            android:textAlignment="center"
+            android:textColor="#ffffff"/>
+    </RelativeLayout>
+
+
+    <EditText
+        android:id="@+id/dialogOTP_otpInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="6dp"
+        android:textSize="28sp"
+        android:padding="4dp"
+        android:textColor="#ffffff"
+        android:singleLine="true"
+        android:imeOptions="actionDone"
+        android:background="@drawable/pxwidget_shape_input_border"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="6dp"
+        android:layout_margin="6dp"
+        android:layout_gravity="center"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/dialogOTP_actionCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CANCEL"
+            android:layout_weight="1"
+            android:textSize="22sp"
+            android:textColor="#00ffff"
+            style="?android:attr/borderlessButtonStyle"/>
+
+        <Button
+            android:id="@+id/dialogOTP_actionVerify"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Verify"
+            android:layout_weight="1"
+            android:textSize="26sp"
+            android:textColor="#00ffff"
+            style="?android:attr/borderlessButtonStyle"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#00ffff"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:visibility="visible"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/dialogOTP_actionOpenMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/dialogOTP_openMessageIcon"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_margin="3dp"
+                android:src="@drawable/pxwidget_message_glow_04_48px"/>
+
+            <Button
+                android:id="@+id/dialogOTP_buttonOpenMessage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Open Message"
+                android:textSize="18sp"
+                android:textColor="#00ffff"
+                style="?android:attr/borderlessButtonStyle"/>
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/dialogOTP_actionOpenMessageInfo"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:padding="10dp"
+            android:src="@drawable/pxwidget_icon_info_2"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:visibility="visible"/>
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:visibility="visible"
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentTop="true"
+            android:background="#00ffff"/>
+
+        <LinearLayout
+            android:id="@+id/dialogOTP_actionRequestNewOTP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:orientation="vertical">
+
+             <Button
+                android:id="@+id/dialogOTP_buttonRequestNewOTP"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Request New OTP"
+                android:textSize="20sp"
+                android:textColor="#ffffff"
+                android:visibility="visible"
+                style="?android:attr/borderlessButtonStyle"/>
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/dialogOTP_actionRequestNewOTPInfo"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:padding="10dp"
+            android:src="@drawable/pxwidget_icon_info_2"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:visibility="visible"/>
+
+    </RelativeLayout>
+
+<!--
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_margin="5dp"
+        android:layout_gravity="center"
+        android:visibility="visible"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#00ffff"/>
+
+        <Button
+            android:id="@+id/dialogOTP_actionSendAgain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Request New OTP"
+            android:textSize="20sp"
+            android:textColor="#ffffff"
+            android:visibility="visible"
+            style="?android:attr/borderlessButtonStyle"/>
+
+    </LinearLayout>
+-->
+
+
+</LinearLayout>

@@ -31,6 +31,20 @@ public abstract class MessageDialog extends AlertDialog {
     public abstract void onTimedOut();
     public abstract void onDismissed();
 
+    public MessageDialog(Context context, String text) {
+        super(context, R.style.PxwProgressDialogTheme);
+        this.progressText = text;
+        this._context = context;
+    }
+
+
+    public MessageDialog(Context context, String text, long timeout) {
+        super(context, R.style.PxwProgressDialogTheme);
+        this.progressText = text;
+        this._context = context;
+        this.WAIT_TIME = timeout;
+    }
+
     public MessageDialog(Context context, int themeResId, String text) {
         super(context, themeResId);
         this.progressText = text;
