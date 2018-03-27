@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,7 +36,7 @@ public class PxOTPDialog extends Dialog {
     private Context dn_dialogContext;
     private static String LOG_TITLE = PxOTPDialog.class.getSimpleName();
     private final long MINUTE = 60;
-    private final long otpCountDownTime = 2 * 60 * 1000;
+    private final long otpCountDownTime = 60 * 1000;
 
     private String dialogTitle = null;
     private String otpID = null;
@@ -66,6 +67,8 @@ public class PxOTPDialog extends Dialog {
     private ImageView vActionOpenMessageInfo;
     private ImageView vActionRequestNewOTPInfo;
 
+    private RelativeLayout vLayoutOpenMessage;
+    private RelativeLayout vLayoutRequestNewOTP;
 
     private OnOTPVerifyListener otpVerifyListener;
     private OnCancelListener cancelListener;
@@ -207,6 +210,8 @@ public class PxOTPDialog extends Dialog {
         vActionOpenMessageInfo = (ImageView) findViewById(R.id.dialogOTP_actionOpenMessageInfo);
         vActionRequestNewOTPInfo = (ImageView) findViewById(R.id.dialogOTP_actionRequestNewOTPInfo);
 
+        vLayoutOpenMessage = (RelativeLayout) findViewById(R.id.dialogOTP_layoutOpenMessage);
+        vLayoutRequestNewOTP = (RelativeLayout)findViewById(R.id.dialogOTP_layoutRequestNewOTP);
 
         if(otpID !=null && otpID.length()>0){
             vOTPID.setText(otpID);
@@ -318,6 +323,16 @@ public class PxOTPDialog extends Dialog {
             }
         });
 
+        if(newOTPTime <= 5000){
+            // ToDo : Cross Check the minimum Request OTP Time
+            newOTPTime = 5000;
+        }
+
+        if(openMessageTime <= 3000){
+            // ToDo : Cross Check the minimum Request OTP Time
+            openMessageTime = 3000;
+        }
+
         CountDownTimer otpCountDownTimer = new CountDownTimer(newOTPTime,1000) {
             @Override
             public void onTick(long l) {
@@ -370,21 +385,25 @@ public class PxOTPDialog extends Dialog {
     private void showOpenMessageAction(boolean status){
         if(status){
             //ToDo : Add Animation Here
-            vActionOpenMessage.setVisibility(View.VISIBLE);
+            vLayoutOpenMessage.setVisibility(View.VISIBLE);
         } else {
             //ToDo : Add Animation Here
-            vActionOpenMessage.setVisibility(View.GONE);
+            vLayoutOpenMessage.setVisibility(View.GONE);
         }
     }
 
     private void showRequestNewOTPAction(boolean status){
         if(status){
             //ToDo : Add Animation Here
-            if(requestNewOTPListener!=null)
-                vActionRequestNewOTP.setVisibility(View.VISIBLE);
+            if(requestNewOTPListener!=null) {
+                vLayoutRequestNewOTP.setVisibility(View.VISIBLE);
+            } else {
+                // ToDo : BUG : Handle it
+            }
+
         } else {
             //ToDo : Add Animation Here
-            vActionRequestNewOTP.setVisibility(View.GONE);
+            vLayoutRequestNewOTP.setVisibility(View.GONE);
         }
     }
 

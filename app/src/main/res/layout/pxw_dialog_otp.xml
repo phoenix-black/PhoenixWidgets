@@ -122,17 +122,24 @@
             style="?android:attr/borderlessButtonStyle"/>
     </LinearLayout>
 
-    <View
+<!--    <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#00ffff"/>
+        android:background="#00ffff"/>-->
 
     <RelativeLayout
+        android:id="@+id/dialogOTP_layoutOpenMessage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:visibility="visible"
+        android:visibility="gone"
         android:orientation="horizontal">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_alignParentTop="true"
+            android:background="#00ffff"/>
 
         <LinearLayout
             android:id="@+id/dialogOTP_actionOpenMessage"
@@ -175,15 +182,16 @@
 
 
     <RelativeLayout
+        android:id="@+id/dialogOTP_layoutRequestNewOTP"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:visibility="visible"
+        android:visibility="gone"
         android:orientation="horizontal">
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="1dp"
+            android:layout_height="2dp"
             android:layout_alignParentTop="true"
             android:background="#00ffff"/>
 
