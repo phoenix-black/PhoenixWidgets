@@ -76,6 +76,8 @@ public class PxOTPDialog extends Dialog {
     private OnRequestNewOTPListener requestNewOTPListener;
     private UIInterface uiInterface;
 
+    private CountDownTimer otpCountDownTimer;
+
     public interface OnOTPVerifyListener {
         void onOTPVerify(String data);
     }
@@ -190,6 +192,7 @@ public class PxOTPDialog extends Dialog {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.pxw_dialog_otp);
         setCanceledOnTouchOutside(false);
+        setCancelable(false);
         Window dialogWindow = getWindow();
 
         if(dialogWindow!=null) {
@@ -237,6 +240,14 @@ public class PxOTPDialog extends Dialog {
                 if(cancelListener!=null){
                     cancelListener.onCancelled();
                 }
+                try {
+                    if (otpCountDownTimer != null) {
+                        otpCountDownTimer.cancel();
+                    }
+                } catch (Exception e){
+                    e.printStackTrace();
+                }
+
                 dismiss();
             }
         });
@@ -251,6 +262,13 @@ public class PxOTPDialog extends Dialog {
                         otpVerifyListener.onOTPVerify(vOTPInput.getText().toString());
                     }
                     vOTPInput.setText("");
+                    try {
+                        if (otpCountDownTimer != null) {
+                            otpCountDownTimer.cancel();
+                        }
+                    } catch (Exception e){
+                        e.printStackTrace();
+                    }
                     dismiss();
                 }
             }
@@ -269,6 +287,9 @@ public class PxOTPDialog extends Dialog {
         vActionRequestNewOTP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
+
                 if(requestNewOTPListener!=null){
                     requestNewOTPListener.onRequestNewOTP(view);
                 } else {
@@ -334,15 +355,15 @@ public class PxOTPDialog extends Dialog {
             openMessageTime = 3000;
         }
 
-        CountDownTimer otpCountDownTimer = new CountDownTimer(newOTPTime,1000) {
+        otpCountDownTimer = new CountDownTimer(newOTPTime,1000) {
             @Override
             public void onTick(long l) {
                 long minute = (l / 1000) / 60;
                 long seconds = (l / 1000) % 60;
 
                 //if ((l / 1000) == openMessageTime) {
-                Log.e(LOG_TITLE,"Timer : "+l+" Threshold: "+openMessageTime );
-                if (l == openMessageTime) {
+                //Log.e(LOG_TITLE,"Timer : "+l+" Threshold: "+openMessageTime );
+                if ((l/1000) == (openMessageTime/1000)) {
                     showOpenMessageAction(true);
                 }
 
@@ -355,6 +376,7 @@ public class PxOTPDialog extends Dialog {
 
             @Override
             public void onFinish() {
+                vOTPTimer.setText("00:00");
                 // ToDo : Upgrade this alert Dialog (Message and Design)
                 if(requestNewOTPListener!=null) {
                     new PxAlertDialog(dn_dialogContext, "Still haven't received OTP Message!\nRequest for new a OTP")
@@ -436,4 +458,9 @@ public class PxOTPDialog extends Dialog {
         super.onRestoreInstanceState(savedInstanceState);
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Log.e(LOG_TITLE,"OnBackPressed");
+    }
 }
