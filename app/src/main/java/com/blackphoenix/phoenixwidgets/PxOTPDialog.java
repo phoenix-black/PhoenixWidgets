@@ -202,10 +202,11 @@ public class PxOTPDialog extends Dialog {
         vActionVerify = (Button)findViewById(R.id.dialogOTP_actionVerify);
 
         vActionRequestNewOTP = (Button) findViewById(R.id.dialogOTP_actionRequestNewOTP);
+        vActionRequestNewOTP.setVisibility(View.GONE);
         vActionOpenMessage = (ImageView) findViewById(R.id.dialogOTP_actionOpenMessage);
 
         vLayoutAdvancedAction = (RelativeLayout) findViewById(R.id.dialogOTP_layoutAdvancedAction);
-
+        vLayoutAdvancedAction.setVisibility(View.GONE);
 
         if(otpID !=null && otpID.length()>0){
             vOTPID.setText(otpID);
