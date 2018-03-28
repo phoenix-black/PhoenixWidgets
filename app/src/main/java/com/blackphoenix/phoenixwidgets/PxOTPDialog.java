@@ -288,7 +288,7 @@ public class PxOTPDialog extends Dialog {
             @Override
             public void onClick(View view) {
 
-
+                Log.e(LOG_TITLE,"Request New OTP");
 
                 if(requestNewOTPListener!=null){
                     requestNewOTPListener.onRequestNewOTP(view);
