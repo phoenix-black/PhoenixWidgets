@@ -187,7 +187,7 @@ public class PxOTPDialog extends Dialog {
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.pxw_dialog_edit);
+        setContentView(R.layout.pxw_dialog_otp);
         setCanceledOnTouchOutside(false);
         Window dialogWindow = getWindow();
 
