@@ -339,15 +339,10 @@ public class PxOTPDialog extends Dialog {
                 long minute = (l / 1000) / 60;
                 long seconds = (l / 1000) % 60;
 
-                if ((l / 1000) == openMessageTime) {
-                    //Toast.makeText(_context, "Last " + (timerAlertZone /MINUTE) + " Minute", Toast.LENGTH_SHORT).show();
+                //if ((l / 1000) == openMessageTime) {
+                if (l == openMessageTime) {
                     showOpenMessageAction(true);
                 }
-/*
-                if ((l / 1000) == newOTPTime) {
-                    //Toast.makeText(_context, "Last " + (timerBlinkZone/MINUTE) + " Minute", Toast.LENGTH_SHORT).show();
-                    blinkTimer();
-                }*/
 
                 String minuteString = (minute < 10) ? "0" + minute : "" + minute;
                 String secondsString = (seconds < 10) ? "0" + seconds : "" + seconds;
