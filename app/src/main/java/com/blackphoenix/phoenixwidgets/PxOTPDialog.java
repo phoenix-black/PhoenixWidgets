@@ -6,7 +6,6 @@ import android.content.Context;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.annotation.NonNull;
-import android.text.InputType;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -39,7 +38,6 @@ public class PxOTPDialog extends Dialog {
     private final long MINUTE = 60;
     private final long otpCountDownTime = 60 * 1000;
 
-    private String dialogTitle = null;
     private String otpID = null;
     private String openMessageInfo = "If the registered mobile number is present in this device, Click this button to open the messages";
     private String requestNewOTPInfo = "If you haven't received OTP yet, click this button to request for a new OTP";
@@ -63,13 +61,13 @@ public class PxOTPDialog extends Dialog {
 
     private Button vActionCancel;
     private Button vActionVerify;
-    private LinearLayout vActionOpenMessage;
-    private LinearLayout vActionRequestNewOTP;
-    private ImageView vActionOpenMessageInfo;
-    private ImageView vActionRequestNewOTPInfo;
 
-    private RelativeLayout vLayoutOpenMessage;
-    private RelativeLayout vLayoutRequestNewOTP;
+    private ImageView vActionOpenMessage;
+    private Button vActionRequestNewOTP;
+
+
+    private RelativeLayout vLayoutAdvancedAction;
+
 
     private OnOTPVerifyListener otpVerifyListener;
     private OnCancelListener cancelListener;
@@ -97,11 +95,6 @@ public class PxOTPDialog extends Dialog {
     /*
         setData
      */
-
-    public PxOTPDialog setDialogTitle(@NonNull String text){
-        this.dialogTitle = text;
-        return this;
-    }
 
     public PxOTPDialog setOTPID(@NonNull String text){
         this.otpID = text;
@@ -201,29 +194,21 @@ public class PxOTPDialog extends Dialog {
 
         vOTPID = (TextView) findViewById(R.id.dialogOTP_otpIDInput);
         vOTPTimer = (TextView) findViewById(R.id.dialogOTP_otpTimer);
-        vDialogTitle = (TextView) findViewById(R.id.dialogOTP_dialogTitle);
+
 
         vOTPInput = (EditText)findViewById(R.id.dialogOTP_otpInput);
 
         vActionCancel = (Button)findViewById(R.id.dialogOTP_actionCancel);
         vActionVerify = (Button)findViewById(R.id.dialogOTP_actionVerify);
 
-        vActionRequestNewOTP = (LinearLayout)findViewById(R.id.dialogOTP_actionRequestNewOTP);
-        vActionOpenMessage = (LinearLayout) findViewById(R.id.dialogOTP_actionOpenMessage);
+        vActionRequestNewOTP = (Button) findViewById(R.id.dialogOTP_actionRequestNewOTP);
+        vActionOpenMessage = (ImageView) findViewById(R.id.dialogOTP_actionOpenMessage);
 
-        vActionOpenMessageInfo = (ImageView) findViewById(R.id.dialogOTP_actionOpenMessageInfo);
-        vActionRequestNewOTPInfo = (ImageView) findViewById(R.id.dialogOTP_actionRequestNewOTPInfo);
+        vLayoutAdvancedAction = (RelativeLayout) findViewById(R.id.dialogOTP_layoutAdvancedAction);
 
-        vLayoutOpenMessage = (RelativeLayout) findViewById(R.id.dialogOTP_layoutOpenMessage);
-        vLayoutRequestNewOTP = (RelativeLayout)findViewById(R.id.dialogOTP_layoutRequestNewOTP);
 
         if(otpID !=null && otpID.length()>0){
             vOTPID.setText(otpID);
-        }
-
-
-        if(dialogTitle !=null && dialogTitle.length()>0){
-            vDialogTitle.setText(dialogTitle);
         }
 
         uiInterface = new UIInterface() {
@@ -233,6 +218,10 @@ public class PxOTPDialog extends Dialog {
             }
         };
 
+
+        /*
+            Cancel Click Listener
+         */
 
         vActionCancel.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -251,6 +240,10 @@ public class PxOTPDialog extends Dialog {
                 dismiss();
             }
         });
+
+        /*
+            Verify Click Listener
+         */
 
         vActionVerify.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -274,6 +267,9 @@ public class PxOTPDialog extends Dialog {
             }
         });
 
+        /*
+            Open Message Listener
+         */
 
         vActionOpenMessage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -283,6 +279,10 @@ public class PxOTPDialog extends Dialog {
             }
         });
 
+
+        /*
+            Request New OTP Listener
+         */
 
         vActionRequestNewOTP.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -300,27 +300,6 @@ public class PxOTPDialog extends Dialog {
         });
 
 
-        if(isOpenMessageInfoEnabled) {
-            vActionOpenMessageInfo.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    getMessageDialog(dn_dialogContext,openMessageInfo).show();
-                }
-            });
-        } else {
-            vActionOpenMessageInfo.setVisibility(View.GONE);
-        }
-
-        if(isRequestNewOTPInfoEnabled) {
-            vActionRequestNewOTPInfo.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    getMessageDialog(dn_dialogContext,requestNewOTPInfo).show();
-                }
-            });
-        } else {
-            vActionRequestNewOTPInfo.setVisibility(View.GONE);
-        }
 
         if(otpValidationRule == null || otpValidationRule.length()>0) {
            otpValidationRule = "^[0-9]+$";
@@ -404,10 +383,10 @@ public class PxOTPDialog extends Dialog {
     private void showOpenMessageAction(boolean status){
         if(status){
             //ToDo : Add Animation Here
-            vLayoutOpenMessage.setVisibility(View.VISIBLE);
+            vLayoutAdvancedAction.setVisibility(View.VISIBLE);
         } else {
             //ToDo : Add Animation Here
-            vLayoutOpenMessage.setVisibility(View.GONE);
+            vLayoutAdvancedAction.setVisibility(View.GONE);
         }
     }
 
@@ -415,14 +394,14 @@ public class PxOTPDialog extends Dialog {
         if(status){
             //ToDo : Add Animation Here
             if(requestNewOTPListener!=null) {
-                vLayoutRequestNewOTP.setVisibility(View.VISIBLE);
+                vActionRequestNewOTP.setVisibility(View.VISIBLE);
             } else {
                 // ToDo : BUG : Handle it
             }
 
         } else {
             //ToDo : Add Animation Here
-            vLayoutRequestNewOTP.setVisibility(View.GONE);
+            vActionRequestNewOTP.setVisibility(View.GONE);
         }
     }
 
