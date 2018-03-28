@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.annotation.NonNull;
 import android.text.InputType;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -301,7 +302,7 @@ public class PxOTPDialog extends Dialog {
         }
 
         if(otpValidationRule == null || otpValidationRule.length()>0) {
-           otpValidationRule = "[0-9]";
+           otpValidationRule = "^[0-9]+$";
            otpValidationMessage = "OTP should be only numbers 0-9";
            // ToDo : Write a proper message
             // else part is not required to handle
@@ -340,6 +341,7 @@ public class PxOTPDialog extends Dialog {
                 long seconds = (l / 1000) % 60;
 
                 //if ((l / 1000) == openMessageTime) {
+                Log.e(LOG_TITLE,"Timer : "+l+" Threshold: "+openMessageTime );
                 if (l == openMessageTime) {
                     showOpenMessageAction(true);
                 }
