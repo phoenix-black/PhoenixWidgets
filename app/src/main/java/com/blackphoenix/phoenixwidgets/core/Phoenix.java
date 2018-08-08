@@ -6,7 +6,7 @@ package com.blackphoenix.phoenixwidgets.core;
 
 public class Phoenix {
 
-    public interface PhoenixTimeoutListener {
+    public interface PxTimeoutListener {
         void onTimeOut();
     }
 

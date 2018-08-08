@@ -16,27 +16,27 @@ import com.blackphoenix.phoenixwidgets.core.Phoenix;
  * Created by Praba on 08-02-2017.
  */
 
-public class PhoenixProgressAnimation extends AlertDialog {
+public class PxProgressAnimation extends AlertDialog {
 
     private final long DEFAULT_TIMEOUT_DURATION = 5 * 1000;
     private long timeout_duration; // 5 Seconds
     private boolean isTimerEnabled = true;
 
-    private Phoenix.PhoenixTimeoutListener phoenixTimeoutListener;
+    private Phoenix.PxTimeoutListener phoenixTimeoutListener;
 
     private Handler timerHandler;
 
-    public PhoenixProgressAnimation(Context context, int themeResId) {
+    public PxProgressAnimation(Context context, int themeResId) {
         super(context, themeResId);
         initDialog(DEFAULT_TIMEOUT_DURATION);
     }
 
-    public PhoenixProgressAnimation(Context context, int themeResId, long timeoutDuration){
+    public PxProgressAnimation(Context context, int themeResId, long timeoutDuration){
         super(context, themeResId);
         initDialog(timeoutDuration);
     }
 
-    public PhoenixProgressAnimation(Context context, long timeoutDuration){
+    public PxProgressAnimation(Context context, long timeoutDuration){
         super(context, R.style.PxwProgressDialogTheme);
         initDialog(timeoutDuration);
     }
@@ -114,12 +114,12 @@ public class PhoenixProgressAnimation extends AlertDialog {
         }
     }
 
-    public PhoenixProgressAnimation enableTimer(boolean status){
+    public PxProgressAnimation enableTimer(boolean status){
         this.isTimerEnabled = status;
         return this;
     }
 
-    public PhoenixProgressAnimation setTimeoutDuration(long durationInMs){
+    public PxProgressAnimation setTimeoutDuration(long durationInMs){
         if(durationInMs>0){
             timeout_duration = durationInMs;
         } else {
@@ -128,7 +128,7 @@ public class PhoenixProgressAnimation extends AlertDialog {
         return this;
     }
 
-    public PhoenixProgressAnimation setTimeoutListener(Phoenix.PhoenixTimeoutListener listener){
+    public PxProgressAnimation setTimeoutListener(Phoenix.PxTimeoutListener listener){
         this.phoenixTimeoutListener = listener;
         return this;
     }
