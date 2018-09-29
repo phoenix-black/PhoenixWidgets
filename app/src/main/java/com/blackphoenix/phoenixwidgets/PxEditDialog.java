@@ -6,9 +6,11 @@ package com.blackphoenix.phoenixwidgets;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.text.InputType;
+import android.transition.Fade;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -163,6 +165,8 @@ public class PxEditDialog extends Dialog {
 
         if(dialogWindow!=null) {
             dialogWindow.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+            dialogWindow.setEnterTransition(new Fade(Fade.IN).setDuration(500));
+            dialogWindow.setExitTransition(new Fade(Fade.OUT).setDuration(500));
         }
 
         dds_dataTitle = (TextView) findViewById(R.id.dialogEdit_dataTitle);
@@ -234,10 +238,12 @@ public class PxEditDialog extends Dialog {
                     }
                 }
 
-                if(data.equals(dataInput)){
+                if(data!=null && data.equals(dataInput)){
                     dds_buttonUpdate.setEnabled(false);
+                    dds_dataInput.setTextColor(Color.WHITE);
                 } else {
                     dds_buttonUpdate.setEnabled(true);
+                    dds_dataInput.setTextColor(Color.parseColor("#FFFF6E40"));
                 }
             }
         });
@@ -280,6 +286,7 @@ public class PxEditDialog extends Dialog {
             public void onClick(View view) {
                 if(dataInput !=null && dataInput.length()>0){
                     dds_dataInput.setText(dataInput);
+                    dds_dataInput.setTextColor(Color.WHITE);
                     _isInputValid = true;
                 }
             }
