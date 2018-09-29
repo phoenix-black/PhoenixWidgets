@@ -44,7 +44,7 @@
         app:layout_constraintTop_toBottomOf="@id/dialogEdit_actionCancel"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:src="@drawable/pxwidget_icon_info_2"/>
+        android:src="@drawable/pxwidget_icon_edit_neon_36dp"/>
 
     <TextView
         android:id="@+id/dialogEdit_dataTitle"
