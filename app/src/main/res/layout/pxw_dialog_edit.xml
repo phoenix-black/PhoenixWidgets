@@ -34,7 +34,7 @@
         app:layout_constraintTop_toBottomOf="@id/dialogEdit_actionCancel"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/dialogEdit_dataInput"
+        app:layout_constraintBottom_toTopOf="@id/dialogEdit_dataInputLayout"
         android:gravity="center"
         android:orientation="horizontal">
 
@@ -63,41 +63,56 @@
     </LinearLayout>
 
 
-
-
-
-    <EditText
-        android:id="@+id/dialogEdit_dataInput"
+    <LinearLayout
+        android:id="@+id/dialogEdit_dataInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:layout_marginEnd="15dp"
         android:layout_marginStart="15dp"
-        android:padding="8dp"
+        android:weightSum="10"
+        android:gravity="center"
+        android:background="@drawable/pxwidget_shape_input_border"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/dialogEdit_titleLayout"
-        android:textSize="28sp"
-        android:textColor="#ffffff"
-        android:singleLine="true"
-        android:imeOptions="actionDone"
-        android:hint="Edit"
-        android:textColorHint="#646565"
-        android:background="@drawable/pxwidget_shape_input_border"/>
+        app:layout_constraintTop_toBottomOf="@id/dialogEdit_titleLayout">
+
+        <EditText
+            android:id="@+id/dialogEdit_dataInput"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="10"
+            android:padding="8dp"
+            android:textSize="28sp"
+            android:textColor="#ffffff"
+            android:singleLine="true"
+            android:imeOptions="actionDone"
+            android:hint="Edit"
+            android:textColorHint="#646565" />
+
+        <ImageView
+            android:id="@+id/dialogEdit_resetButton"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_weight="1"
+            android:padding="10dp"
+            android:layout_margin="3dp"
+            app:layout_constraintTop_toBottomOf="@id/dialogEdit_dataInput"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:src="@drawable/pxwidget_selector_icon_undo"/>
+
+    </LinearLayout>
 
 
-    <ImageView
-        android:id="@+id/dialogEdit_resetButton"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:padding="10dp"
-        app:layout_constraintTop_toBottomOf="@id/dialogEdit_dataInput"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:src="@drawable/pxwidget_selector_icon_undo"/>
+
+
+
+
 
 
     <Button
