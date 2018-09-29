@@ -10,9 +10,11 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.text.InputType;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -39,7 +41,7 @@ public class PxEditDialog extends Dialog {
     private int dataIconID = -1;
     private int dataInputType = -1;
     private String dataValidationRule = null;
-    private String dataValidationMessage = null;
+    private String dataValidationMessage = "Invalid Input";
     private String buttonUpdateText = null;
     private String buttonCancelText = null;
 
@@ -53,9 +55,12 @@ public class PxEditDialog extends Dialog {
     private EditText dds_dataInput;
     private TextView dds_dataTitle;
     private ImageView dds_dataIcon;
+    private ImageView dds_buttonReset;
 
     private Button dds_buttonCancel;
     private Button dds_buttonUpdate;
+
+    private boolean isValidate = false;
 
     public interface OnUpdateListener {
         void onUpdated(String data);
@@ -147,6 +152,7 @@ public class PxEditDialog extends Dialog {
     }
 
 
+
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -164,7 +170,7 @@ public class PxEditDialog extends Dialog {
         dds_dataInput = (EditText)findViewById(R.id.dialogEdit_dataInput);
         dds_buttonCancel = (Button)findViewById(R.id.dialogEdit_actionCancel);
         dds_buttonUpdate = (Button)findViewById(R.id.dialogEdit_actionUpdate);
-
+        dds_buttonReset = (ImageView)findViewById(R.id.dialogEdit_resetButton);
 
         uiInterface = new UIInterface() {
             @Override
@@ -209,10 +215,13 @@ public class PxEditDialog extends Dialog {
             }
         }
 
-        if(dataValidationRule!=null && dataValidationRule.length()>0) {
-            dds_dataInput.addTextChangedListener(new InputTextChangeListener() {
-                @Override
-                public void validateText(String data) {
+
+        isValidate = (dataValidationRule!=null && dataValidationRule.length()>0);
+
+        dds_dataInput.addTextChangedListener(new InputTextChangeListener() {
+            @Override
+            public void validateText(String data) {
+                if(isValidate) {
                     String VALIDATION_PATTERN = dataValidationRule;
                     Pattern pattern = Pattern.compile(VALIDATION_PATTERN);
                     Matcher matcher = pattern.matcher(data);
@@ -224,8 +233,15 @@ public class PxEditDialog extends Dialog {
                         _isInputValid = true;
                     }
                 }
-            });
-        }
+
+                if(data.equals(dataInput)){
+                    dds_buttonUpdate.setEnabled(false);
+                } else {
+                    dds_buttonUpdate.setEnabled(true);
+                }
+            }
+        });
+
 
         dds_buttonCancel.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -255,6 +271,16 @@ public class PxEditDialog extends Dialog {
 
                         dismiss();
                     }
+                }
+            }
+        });
+
+        dds_buttonReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(dataInput !=null && dataInput.length()>0){
+                    dds_dataInput.setText(dataInput);
+                    _isInputValid = true;
                 }
             }
         });
