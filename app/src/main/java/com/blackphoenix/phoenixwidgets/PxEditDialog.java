@@ -1,7 +1,7 @@
 package com.blackphoenix.phoenixwidgets;
 
 /**
- * Created by shree on 1/2/2018.
+ * Created by Praba on 1/2/2018.
  */
 
 import android.app.Dialog;
@@ -240,9 +240,11 @@ public class PxEditDialog extends Dialog {
 
                 if(data!=null && data.equals(dataInput)){
                     dds_buttonUpdate.setEnabled(false);
+                    dds_buttonReset.setEnabled(false);
                     dds_dataInput.setTextColor(Color.WHITE);
                 } else {
                     dds_buttonUpdate.setEnabled(true);
+                    dds_buttonReset.setEnabled(true);
                     dds_dataInput.setTextColor(Color.parseColor("#FFFF6E40"));
                 }
             }
