@@ -54,7 +54,7 @@ public class PxEditDialog extends Dialog {
     private OnEditClickListener editClickListener;
     private UIInterface uiInterface;
 
-    private EditText dds_dataInput;
+    protected EditText dds_dataInput;
     private TextView dds_dataTitle;
     private ImageView dds_dataIcon;
     private ImageView dds_buttonReset;
