@@ -50,6 +50,7 @@ public class PxEditDialog extends Dialog {
     private boolean _isInputValid = false;
 
     private OnUpdateListener updateListener;
+    private OnNewUpdateListener newUpdateListener;
     private OnCancelListener cancelListener;
     private OnEditClickListener editClickListener;
     private UIInterface uiInterface;
@@ -66,6 +67,10 @@ public class PxEditDialog extends Dialog {
 
     public interface OnUpdateListener {
         void onUpdated(String data);
+    }
+
+    public interface OnNewUpdateListener {
+        void onUpdated(String oldData, String newData);
     }
 
     public interface OnCancelListener {
@@ -108,8 +113,14 @@ public class PxEditDialog extends Dialog {
         return this;
     }
 
+    @Deprecated
     public PxEditDialog setUpdateListener(@NonNull OnUpdateListener listener){
         this.updateListener = listener;
+        return this;
+    }
+
+    public PxEditDialog setOnNewUpdateListener(@NonNull OnNewUpdateListener listener){
+        this.newUpdateListener = listener;
         return this;
     }
 
@@ -275,6 +286,10 @@ public class PxEditDialog extends Dialog {
 
                         if(updateListener!=null){
                             updateListener.onUpdated(newData);
+                        }
+
+                        if(newUpdateListener!=null){
+                            newUpdateListener.onUpdated(dataInput,newData);
                         }
 
                         dismiss();
