@@ -3,6 +3,7 @@ package com.blackphoenix.phoenixwidgets;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -117,6 +118,7 @@ public class PxActionDialog extends AlertDialog {
 
         if(_alertMessage!=null){
             alertMessage.setText(_alertMessage);
+            alertMessage.setMovementMethod(new ScrollingMovementMethod());
         }
 
         if(isPositiveButtonEnabled) {
