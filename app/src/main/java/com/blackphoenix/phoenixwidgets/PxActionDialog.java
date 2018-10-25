@@ -40,12 +40,17 @@ public class PxActionDialog extends AlertDialog {
         void onClick(View view);
     }
 
+    public PxActionDialog(Context context) {
+        super(context,R.style.PxwProgressDialogTheme);
+    }
+
     public PxActionDialog(Context context, String text) {
         this(context,R.style.PxwProgressDialogTheme,text);
     }
 
     public PxActionDialog(Context context, int themeResId, String text) {
         super(context, themeResId);
+        this._alertMessage = text;
     }
 
     public PxActionDialog setPositiveButtonText(String buttonText){
@@ -102,15 +107,15 @@ public class PxActionDialog extends AlertDialog {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.pxw_dialog_alert_rect);
+        setContentView(R.layout.pxw_dialog_action_rect);
         setCanceledOnTouchOutside(true);
         setCancelable(true);
 
-        TextView alertTitle = findViewById(R.id.dialogAlertRect_title);
-        TextView alertMessage = findViewById(R.id.dialogAlertRect_content);
-        ImageView alertIcon =  findViewById(R.id.dialogAlertRect_icon);
-        Button finishButton = findViewById(R.id.dialogAlertRect_positiveButton);
-        Button cancelButton = findViewById(R.id.dialogAlertRect_negativeButton);
+        TextView alertTitle = findViewById(R.id.dialogActionRect_title);
+        TextView alertMessage = findViewById(R.id.dialogActionRect_content);
+        ImageView alertIcon =  findViewById(R.id.dialogActionRect_icon);
+        Button finishButton = findViewById(R.id.dialogActionRect_positiveButton);
+        Button cancelButton = findViewById(R.id.dialogActionRect_negativeButton);
 
         if(_alertTitle!=null){
             alertTitle.setText(_alertTitle);
