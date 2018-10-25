@@ -371,7 +371,7 @@ public class PxOTPDialog extends Dialog {
                             }).show();
                 } else {
                     // ToDo : BUG Handle Here
-                    Toast.makeText(dn_dialogContext,"02 BUG Occurred!",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(dn_dialogContext,"Internal BUG Occurred!",Toast.LENGTH_SHORT).show();
                 }
                 showRequestNewOTPAction(true);
             }

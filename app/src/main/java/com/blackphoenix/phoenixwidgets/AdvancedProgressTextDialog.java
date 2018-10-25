@@ -110,7 +110,7 @@ public abstract class AdvancedProgressTextDialog extends AlertDialog {
             @Override
             public void run() {
                 if(isShowing()) {
-                    Toast.makeText(_context, "Timed Out", Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(_context, "Timed Out", Toast.LENGTH_SHORT).show();
                     onTimedOut();
                     dismiss();
                 }

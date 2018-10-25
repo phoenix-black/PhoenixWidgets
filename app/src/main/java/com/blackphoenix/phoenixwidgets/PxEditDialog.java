@@ -114,6 +114,7 @@ public class PxEditDialog extends Dialog {
     }
 
     @Deprecated
+
     public PxEditDialog setUpdateListener(@NonNull OnUpdateListener listener){
         this.updateListener = listener;
         return this;

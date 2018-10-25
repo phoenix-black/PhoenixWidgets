@@ -5,5 +5,7 @@
     <color name="pxwDialogSecondaryText">#757575</color>
     <color name="pxwDialogBlack">#000000</color>
     <color name="pxwDialogWhite">#ffffff</color>
+    <color name="pxwDialogNeon">#00ffff</color>
+    <color name="pxwDialogGrey">#3c3c3c</color>
 
 </resources>
