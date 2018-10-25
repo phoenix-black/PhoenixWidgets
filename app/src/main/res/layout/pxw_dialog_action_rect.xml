@@ -75,9 +75,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_margin="3dp"
-            android:background="@drawable/pxwidget_selector_color_grey_neoncl"
+            android:background="@drawable/pxwidget_selector_button_grey_neoncl"
             android:text="CANCEL"
-            android:textColor="@drawable/pxwidget_selector_button_neon_whitecl"
+            android:textColor="@drawable/pxwidget_selector_color_neon_whitecl"
             android:textSize="20sp" />
 
         <Button
@@ -87,9 +87,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_margin="3dp"
-            android:background="@drawable/pxwidget_selector_color_grey_neoncl"
+            android:background="@drawable/pxwidget_selector_button_grey_neoncl"
             android:text="OK"
-            android:textColor="@drawable/pxwidget_selector_button_neon_whitecl"
+            android:textColor="@drawable/pxwidget_selector_color_neon_whitecl"
             android:textSize="20sp" />
 
     </LinearLayout>
