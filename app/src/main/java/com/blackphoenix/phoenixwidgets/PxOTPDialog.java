@@ -38,6 +38,7 @@ public class PxOTPDialog extends Dialog {
     private final long MINUTE = 60;
     private final long otpCountDownTime = 60 * 1000;
 
+    private String inputOTP = null;
     private String otpID = null;
     private String openMessageInfo = "If the registered mobile number is present in this device, Click this button to open the messages";
     private String requestNewOTPInfo = "If you haven't received OTP yet, click this button to request for a new OTP";
@@ -73,6 +74,7 @@ public class PxOTPDialog extends Dialog {
     private OnCancelListener cancelListener;
     private OnRequestNewOTPListener requestNewOTPListener;
     private UIInterface uiInterface;
+    private OnOTPVerificationStatusListener onOTPVerificationStatusListener;
 
     private CountDownTimer otpCountDownTimer;
 
@@ -90,6 +92,10 @@ public class PxOTPDialog extends Dialog {
 
     public interface UIInterface {
         void setOTPID(String data);
+    }
+
+    public interface OnOTPVerificationStatusListener {
+        void onOTPValiid(boolean status);
     }
 
     /*
@@ -133,6 +139,11 @@ public class PxOTPDialog extends Dialog {
     }
 
 
+    public PxOTPDialog setInputOTP(String otp) {
+        this.inputOTP = otp;
+        return this;
+    }
+
     /*
         Set Listeners
      */
@@ -165,6 +176,11 @@ public class PxOTPDialog extends Dialog {
         } else {
             return false;
         }
+    }
+
+    public PxOTPDialog setOnOTPVerificationStatusListener(@NonNull OnOTPVerificationStatusListener listener){
+        this.onOTPVerificationStatusListener = listener;
+        return this;
     }
 
 
@@ -263,7 +279,15 @@ public class PxOTPDialog extends Dialog {
                     } catch (Exception e){
                         e.printStackTrace();
                     }
-                    dismiss();
+
+                    if(inputOTP != null) {
+                        if(onOTPVerificationStatusListener!=null) {
+                            onOTPVerificationStatusListener.onOTPValiid(
+                                    inputOTP.equalsIgnoreCase(vOTPInput.getText().toString()));
+                        }
+                    } else {
+                        dismiss();
+                    }
                 }
             }
         });
