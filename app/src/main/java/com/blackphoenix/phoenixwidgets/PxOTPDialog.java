@@ -230,6 +230,7 @@ public class PxOTPDialog extends Dialog {
 
 
         vOTPInput = (EditText)findViewById(R.id.dialogOTP_otpInput);
+        vOTPInput.setLongClickable(false);
 
         vActionCancel = (Button)findViewById(R.id.dialogOTP_actionCancel);
         vActionVerify = (Button)findViewById(R.id.dialogOTP_actionVerify);
@@ -288,7 +289,7 @@ public class PxOTPDialog extends Dialog {
                     if(otpVerifyListener!=null){
                         otpVerifyListener.onOTPVerify(vOTPInput.getText().toString());
                     }
-                    vOTPInput.setText("");
+
                     try {
                         if (otpCountDownTimer != null) {
                             otpCountDownTimer.cancel();
