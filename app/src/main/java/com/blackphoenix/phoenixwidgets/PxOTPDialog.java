@@ -413,10 +413,10 @@ public class PxOTPDialog extends Dialog {
                                     requestNewOTPListener.onRequestNewOTP(view);
                                 }
                             }).show();
-                } else {
+                } /*else {
                     // ToDo : BUG Handle Here
                     Toast.makeText(dn_dialogContext,"Internal BUG Occurred!",Toast.LENGTH_SHORT).show();
-                }
+                }*/
                 showRequestNewOTPAction(true);
             }
         };
