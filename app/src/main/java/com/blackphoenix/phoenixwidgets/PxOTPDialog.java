@@ -53,7 +53,7 @@ public class PxOTPDialog extends Dialog {
     private String otpValidationMessage = null;
 
     private boolean _isOTPValid = false;
-
+    private boolean isOTPRequestAlertEnabled = false;
 
     private TextView vDialogTitle;
     private TextView vOTPID;
@@ -76,6 +76,10 @@ public class PxOTPDialog extends Dialog {
     private UIInterface uiInterface;
     private OnOTPVerificationStatusListener onOTPVerificationStatusListener;
 
+
+
+    private OnOpenMessagesListener onOpenMessagesListener;
+
     private CountDownTimer otpCountDownTimer;
 
     public interface OnOTPVerifyListener {
@@ -96,6 +100,10 @@ public class PxOTPDialog extends Dialog {
 
     public interface OnOTPVerificationStatusListener {
         void onOTPValiid(boolean status);
+    }
+
+    public interface OnOpenMessagesListener {
+        void onOpenMessages();
     }
 
     /*
@@ -144,6 +152,11 @@ public class PxOTPDialog extends Dialog {
         return this;
     }
 
+    public PxOTPDialog setOTPRequestAlertEnabled(boolean OTPRequestAlertEnabled) {
+        isOTPRequestAlertEnabled = OTPRequestAlertEnabled;
+        return this;
+    }
+
     /*
         Set Listeners
      */
@@ -183,6 +196,10 @@ public class PxOTPDialog extends Dialog {
         return this;
     }
 
+    public PxOTPDialog setOnOpenMessagesListener(OnOpenMessagesListener onOpenMessagesListener) {
+        this.onOpenMessagesListener = onOpenMessagesListener;
+        return this;
+    }
 
 
     public PxOTPDialog(Context context) {
@@ -300,7 +317,9 @@ public class PxOTPDialog extends Dialog {
             @Override
             public void onClick(View view) {
                 // ToDo : Add this feature here
-                Toast.makeText(dn_dialogContext,"Sorry! This Feature is not yet added", Toast.LENGTH_SHORT).show();
+                if(onOpenMessagesListener!=null){
+                    onOpenMessagesListener.onOpenMessages();
+                }
             }
         });
 
@@ -368,7 +387,8 @@ public class PxOTPDialog extends Dialog {
                 //if ((l / 1000) == openMessageTime) {
                 //Log.e(LOG_TITLE,"Timer : "+l+" Threshold: "+openMessageTime );
                 if ((l/1000) == (openMessageTime/1000)) {
-                    showOpenMessageAction(true);
+
+                    showOpenMessageAction((onOpenMessagesListener!=null));
                 }
 
                 String minuteString = (minute < 10) ? "0" + minute : "" + minute;
@@ -382,7 +402,7 @@ public class PxOTPDialog extends Dialog {
             public void onFinish() {
                 vOTPTimer.setText("00:00");
                 // ToDo : Upgrade this alert Dialog (Message and Design)
-                if(requestNewOTPListener!=null) {
+                if(requestNewOTPListener!=null && isOTPRequestAlertEnabled) {
                     new PxAlertDialog(dn_dialogContext, "Still haven't received OTP Message!\nRequest for new a OTP")
                             .setAlertMessage("Still haven't received OTP Message!\nRequest for new a OTP")
                             .setPositiveButtonText("Request New OTP")
@@ -409,9 +429,12 @@ public class PxOTPDialog extends Dialog {
         if(status){
             //ToDo : Add Animation Here
             vLayoutAdvancedAction.setVisibility(View.VISIBLE);
+            vActionOpenMessage.setVisibility(View.VISIBLE);
         } else {
             //ToDo : Add Animation Here
+            vActionOpenMessage.setVisibility(View.GONE);
             vLayoutAdvancedAction.setVisibility(View.GONE);
+
         }
     }
 
@@ -419,6 +442,7 @@ public class PxOTPDialog extends Dialog {
         if(status){
             //ToDo : Add Animation Here
             if(requestNewOTPListener!=null) {
+                vLayoutAdvancedAction.setVisibility(View.VISIBLE);
                 vActionRequestNewOTP.setVisibility(View.VISIBLE);
             } else {
                 // ToDo : BUG : Handle it
@@ -427,6 +451,7 @@ public class PxOTPDialog extends Dialog {
         } else {
             //ToDo : Add Animation Here
             vActionRequestNewOTP.setVisibility(View.GONE);
+            vLayoutAdvancedAction.setVisibility(View.GONE);
         }
     }
 
