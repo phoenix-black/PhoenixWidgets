@@ -6,6 +6,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -290,20 +291,35 @@ public class PxOTPDialog extends Dialog {
                         otpVerifyListener.onOTPVerify(vOTPInput.getText().toString());
                     }
 
-                    try {
-                        if (otpCountDownTimer != null) {
-                            otpCountDownTimer.cancel();
-                        }
-                    } catch (Exception e){
-                        e.printStackTrace();
-                    }
+                    if(inputOTP != null && onOTPVerificationStatusListener !=null) {
 
-                    if(inputOTP != null) {
-                        if(onOTPVerificationStatusListener!=null) {
-                            onOTPVerificationStatusListener.onOTPValiid(
-                                    inputOTP.equalsIgnoreCase(vOTPInput.getText().toString()));
-                        }
+                            if(inputOTP.equalsIgnoreCase(vOTPInput.getText().toString())) {
+                                onOTPVerificationStatusListener.onOTPValiid(true);
+
+                                try {
+                                    if (otpCountDownTimer != null) {
+                                        otpCountDownTimer.cancel();
+                                    }
+                                } catch (Exception e){
+                                    e.printStackTrace();
+                                }
+
+                                dismiss();
+
+                            } else {
+                                Toast.makeText(dn_dialogContext,"Incorrect OTP! Try Again!",Toast.LENGTH_LONG).show();
+                            }
+
                     } else {
+
+                        try {
+                            if (otpCountDownTimer != null) {
+                                otpCountDownTimer.cancel();
+                            }
+                        } catch (Exception e){
+                            e.printStackTrace();
+                        }
+
                         dismiss();
                     }
                 }
@@ -493,4 +509,5 @@ public class PxOTPDialog extends Dialog {
         super.onBackPressed();
         Log.e(LOG_TITLE,"OnBackPressed");
     }
+
 }
