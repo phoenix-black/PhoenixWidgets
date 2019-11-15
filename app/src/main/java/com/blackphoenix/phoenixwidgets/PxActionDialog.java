@@ -22,6 +22,8 @@ public class PxActionDialog extends AlertDialog {
 
     private String _positiveButtonText;
     private String _negativeButtonText;
+    private String _positiveButtonTag;
+    private String _negativeButtonTag;
     private String _alertTitle;
     private String _alertMessage;
     private int _alertIconResourceID;
@@ -60,6 +62,16 @@ public class PxActionDialog extends AlertDialog {
 
     public PxActionDialog setNegativeButtonText(String buttonText) {
         this._negativeButtonText = buttonText;
+        return this;
+    }
+
+    public PxActionDialog setPositiveButtonTag(String buttonTag){
+        this._positiveButtonTag = buttonTag;
+        return this;
+    }
+
+    public PxActionDialog setNegativeButtonTag(String buttonTag) {
+        this._negativeButtonTag = buttonTag;
         return this;
     }
 
@@ -144,6 +156,14 @@ public class PxActionDialog extends AlertDialog {
 
         if(_negativeButtonText != null){
             cancelButton.setText(_negativeButtonText);
+        }
+
+        if(_positiveButtonTag!=null){
+            finishButton.setTag(_positiveButtonTag);
+        }
+
+        if(_negativeButtonTag!=null){
+            cancelButton.setTag(_negativeButtonTag);
         }
 
         if(_alertIconResourceID > 0){
