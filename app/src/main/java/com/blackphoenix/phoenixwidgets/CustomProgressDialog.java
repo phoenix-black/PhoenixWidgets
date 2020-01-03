@@ -2,6 +2,7 @@ package com.blackphoenix.phoenixwidgets;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
@@ -15,12 +16,27 @@ import android.widget.ImageView;
 
 public class CustomProgressDialog extends AlertDialog {
 
+    Drawable innerDrawable = null;
+    Drawable outerDrawable = null;
+
     public CustomProgressDialog(Context context, int themeResId) {
         super(context, themeResId);
-
-//        show();
-        //di
     }
+
+    public CustomProgressDialog(Context  context) {
+        super(context,R.style.PxwProgressDialogTheme);
+    }
+
+    public CustomProgressDialog setInnerImage(Drawable drawable){
+        this.innerDrawable =    drawable;
+        return this;
+    }
+
+    public CustomProgressDialog setOuterImage(Drawable drawable) {
+        this.outerDrawable = drawable;
+        return this;
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +48,14 @@ public class CustomProgressDialog extends AlertDialog {
 
         ImageView imageViewInner = (ImageView) findViewById(R.id.progress_innerImage);
         ImageView imageViewOuter = (ImageView) findViewById(R.id.progress_outerImage);
+
+        if(innerDrawable!=null){
+            imageViewInner.setImageDrawable(innerDrawable);
+        }
+
+        if(outerDrawable!=null){
+            imageViewOuter.setImageDrawable(outerDrawable);
+        }
 
 
         RotateAnimation rotateAnimationInner = new RotateAnimation(0, 360, Animation.RELATIVE_TO_SELF, 0.5f,
